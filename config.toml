@@ -14,43 +14,57 @@ pygmentscodefencesguesssyntax = true
 disqusShortname = "alexander"
 
 [params]
-    author = "Alexander Pakhomov"
-    info = "Software Engineer"
- #   description = "John Doe's personal website"
-    keywords = "blog,developer,personal"
-    avatarurl = "images/avatar.jpeg"
-
-    favicon_32 = "/img/favicon-32x32.png"
-    favicon_16 = "/img/favicon-16x16.png"
-
-    footercontent = "From Russia with love"
-
-    hidecredits = false
-    hidecopyright = false
-
-    rtl = false
-
-    math = true
-    custom_css = ["css/custom.css"]
-
-# Social links
+   author = "Alexander Pakhomov"
+   info = "Software Engineer"
+   #description = "John Doe's personal website"
+   keywords = "blog,developer,personal"
+   avatarurl = "images/avatar.jpeg"
+   favicon_32 = "/img/favicon-32x32.png"
+   favicon_16 = "/img/favicon-16x16.png"
+   footercontent = "From Russia with love"
+   hidecredits = false
+   hidecopyright = false
+   rtl = false
+   math = true
+   custom_css = ["css/custom.css"]
+#Social links
 [[params.social]]
-    name = "Github"
-    icon = "fab fa-github fa-2x"
-    weight = 1
-    url = "https://github.com/PakhomovAlexander"
+   name = "Github"
+   icon = "fab fa-github fa-2x"
+   weight = 1
+   url = "https://github.com/PakhomovAlexander"
 [[params.social]]
-    name = "Twitter"
-    icon = "fab fa-twitter fa-2x"
-    weight = 3
-    url = "https://twitter.com/alexandr_phmv"
+   name = "Twitter"
+   icon = "fab fa-twitter fa-2x"
+   weight = 3
+   url = "https://twitter.com/alexandr_phmv"
 
-# Menu links
-[[menu.main]]
-    name = "Blog"
-    weight = 1
-    url  = "/posts/"
-[[menu.main]]
-    name = "About"
-    weight = 2
-    url = "/about/"
+
+
+[languages]
+    [languages.en]
+        languagename = "English"
+            
+        #Menu links
+        [[languages.en.menu.main]]
+           name = "Blog"
+           weight = 1
+           url  = "/posts/"
+        [[languages.en.menu.main]]
+           name = "About"
+           weight = 2
+           url = "/about/"
+
+
+
+    [languages.ru]
+        languagename = "Русский"
+
+        [[languages.ru.menu.main]]
+            name = "Блог"
+            weight = 1
+            url  = "/posts/"
+        [[languages.ru.menu.main]]
+            name = "Обо мне"
+            weight = 2
+            url = "/about/"
