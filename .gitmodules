@@ -3,5 +3,5 @@
 	url = https://github.com/luizdepra/hugo-coder.git
 [submodule "PakhomovAlexander.github.io"]
 	path = PakhomovAlexander.github.io
-	url = https://github.com/PakhomovAlexander/PakhomovAlexander.github.io.git
+	url = git@github.com:PakhomovAlexander/PakhomovAlexander.github.io.git
 	branch = master
