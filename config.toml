@@ -1,4 +1,4 @@
-baseurl = "http://pakhomovalexander.github.io"
+baseurl = "https://pakhomovalexander.github.io"
 title = "apakhomov"
 theme = "hugo-coder"
 languagecode = "en"
