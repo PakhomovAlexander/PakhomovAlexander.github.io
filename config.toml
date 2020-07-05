@@ -41,6 +41,12 @@ disqusShortname = "alexander"
    weight = 3
    url = "https://twitter.com/alexandr_phmv"
 
+[[params.social]]
+   name = "Telegram channel"
+   icon = "fab fa-telegram fa-2x"
+   weight = 3
+   url = "https://t.me/toxic_enterprise"
+
 
 
 [languages]
