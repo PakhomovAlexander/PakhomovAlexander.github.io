@@ -1,6 +1,6 @@
 ## Who am I
 
-Hello! I am Pakhomov Alexander, a software engineer. I am a passionate programmer who wants to ship better ideas to the world.
+Hello! My name is Pakhomov Alexander. I am a software engineer. I am a passionate programmer who wants to ship better ideas to the world.
 
 ## How can I help you
 
