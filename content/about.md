@@ -1,7 +1,3 @@
-+++ 
-draft = true
-+++
-
 ## Who am I
 
 Hello! I am Pakhomov Alexander, a software engineer. I am a passionate programmer who wants to ship better ideas to the world.
