@@ -52,7 +52,8 @@ disqusShortname = "alexander"
 [languages]
     [languages.en]
         languagename = "English"
-            
+        contentDir = "content/"
+
         #Menu links
         [[languages.en.menu.main]]
            name = "Blog"
@@ -67,6 +68,7 @@ disqusShortname = "alexander"
 
     [languages.ru]
         languagename = "Русский"
+        contentDir = "content/ru"
 
         [[languages.ru.menu.main]]
             name = "Блог"
