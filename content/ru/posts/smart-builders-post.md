@@ -245,11 +245,24 @@ var person = Person.builder()
 
 ### Как это выглядит в итоге 
 
+Создание `Person`
+
 ```java 
 // Given
 var person = given(
         person().firstName("Alexander")
                 .lastName("Pakhomov")
+                .address(address().country("Russia").city("Moscow"))
+        );
+```
+
+Создание `Organisation`
+
+```java 
+// Given
+var organisation = given(
+        organisation()
+                .organisationName("Apple Inc")
                 .address(address().country("Russia").city("Moscow"))
         );
 ```
@@ -264,7 +277,7 @@ public interface GenericBuilder<T, B extends GenericBuilder<T, B>> {
 }
 ```
 
-Абстрактный билдер для `AbstractiCustormer`
+Абстрактный билдер для `AbstractCustormer`
 
 ```java
 public abstract class CustomerBuilder<T extends AbstractCustomer, B extends CustomerBuilder<T, B>>
