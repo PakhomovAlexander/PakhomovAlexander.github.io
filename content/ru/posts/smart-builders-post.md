@@ -1,7 +1,7 @@
 +++ 
 date = 2020-07-08T16:40:00+03:00
-title = "TDD. SmartBuilder паттерн"
-description = ""
+title = "На пути к TDD. SmartBuilder паттерн"
+description = "На пути к TDD. SmartBuilder паттерн"
 slug = "smart-builder" 
 tags = ["java", "tdd", "dsl", "JUnit5"]
 categories = ["На пути к TDD"]
@@ -9,13 +9,14 @@ externalLink = ""
 series = []
 +++
 
+# На пути к TDD. SmartBuilder паттерн.
 
 ## Зачем
 
 Действительно, зачем? Зачем делать серию статей о [TDD](https://ru.wikipedia.org/wiki/Разработка_через_тестирование)? 
 
 - :loudspeaker: На конференциях об этом говорят. 
-- :mortar_board: На собеседовании ответить за TDD могут. 
+- :mortar_board: На собеседовании пояснить за TDD могут. 
 - :muscle: Кто-то даже пробовал. 
 - :heart: Кому-то даже понравилось. 
 
@@ -96,7 +97,7 @@ public class Address {
 
 Мы будем работать с тем, что есть. :information_desk_person:
 
-#### Задача. 
+#### Задача
 
 Разработать сервис Hostel. Hostel умеет приветствовать клиентов фразой `"Welcome in hoselName, customer.getWelcomeName(). customer.getCountry() is great!"`. Вот и вся задача.
 
