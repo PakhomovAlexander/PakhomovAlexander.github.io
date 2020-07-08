@@ -9,8 +9,6 @@ externalLink = ""
 series = []
 +++
 
-# На пути к TDD. SmartBuilder паттерн.
-
 ## Зачем
 
 Действительно, зачем? Зачем делать серию статей о [TDD](https://ru.wikipedia.org/wiki/Разработка_через_тестирование)? 
