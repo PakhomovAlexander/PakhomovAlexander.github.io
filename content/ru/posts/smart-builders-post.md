@@ -1,10 +1,10 @@
 +++ 
 draft = true
 date = 2020-07-07T16:28:33+03:00
-title = "SmartBuilder паттерн"
+title = "TDD. SmartBuilder паттерн"
 description = ""
 slug = "smart-builder" 
-tags = ["java", "tdd", "dsl"]
+tags = ["java", "tdd", "dsl", "JUnit5"]
 categories = ["На пути к TDD"]
 externalLink = ""
 series = []
@@ -13,21 +13,29 @@ series = []
 
 ## Зачем
 
-Действительно, зачем? Зачем делать серию статей про [TDD](https://ru.wikipedia.org/wiki/Разработка_через_тестирование)? На конференциях про это говорят. На собеседовании ответить за TDD могут. Кто-то даже пробовал. Кому-то даже понравилось. 
+Действительно, зачем? Зачем делать серию статей о [TDD](https://ru.wikipedia.org/wiki/Разработка_через_тестирование)? 
 
-А кто пробовал использовать TDD на большом, закостенелом проекте?  Где от размера доменных обьектов голова пухнет, а после прочтения ТЗ хочется выйти в окно. Ну и как? Работает тест дривен магия? Скорее всего нет. 
+- :loudspeaker: На конференциях об этом говорят. 
+- :mortar_board: На собеседовании ответить за TDD могут. 
+- :muscle: Кто-то даже пробовал. 
+- :heart: Кому-то даже понравилось. 
 
-Я расскажу, как мне удается не вываливаться из цикла red-green-refactor на том самом большом проекте.
+А кто пробовал использовать TDD на большом, закостенелом проекте?  Где размер объектов подогревает стулья, а после прочтения ТЗ хочется выйти в окно. Ну и как? Работает тест дривен магия? Скорее всего нет. :shit:
+
+Расскажу как не вываливаться из цикла red-green-refactor на том самом большом проекте.
 
 ---
 
 ## Что мешает 
 
-Для комфортного кодирования в потоке red-green-refactor нужно сохранять тесты небольшого размера. На словах просто, а на деле? 
+Для комфортного кодирования в потоке red-green-refactor 
+тесты должны быть небольшого размера, методы простыми для восприятия.  
+
+На словах просто, а как насчет кода? 
 
 ### Исходные данные
 
-Допустим у нас доменная модель состоит из `Person` и `Organisation`. На деле в разы больше, но для примера достаточно:
+Допустим доменная модель состоит из `Person` и `Organisation`. На деле в разы больше, но для примера достаточно.
 
 ```java
 public abstract class AbstractCustomer {
@@ -41,21 +49,39 @@ public abstract class AbstractCustomer {
 
     // geters and setters
 }
+```
 
+```java
 public class Organisation extends AbstractCustomer {
 
     private String organisationName;
 
+    @Override
+    public String getWelcomeName() {
+        return organisationName;
+    }
+
+
     // geters and setters
 }
+```
 
+```java
 public class Person extends AbstractCustomer {
     private String firstName;
     private String lastName;
 
+    @Override
+    public String getWelcomeName() {
+        return firstName + " " + lastName;
+    }
+
+
     // geters and setters
 }
+```
 
+```java
 public class Address {
     private String street;
     private String city;
@@ -67,11 +93,15 @@ public class Address {
 }
 ```
 
-Для создания обьектов используется паттерн JavaBeans. Это когда конструктор пустой, а объект настраивается через сеттеры. Да, не лучший выбор, но и проект с историчемким контекстом. [Вот статья](https://medium.com/@muradhajiyev/why-builder-pattern-not-telescoping-or-javabeans-6daa689f418) про разные виды создания объектов в java. Спойлер: используйте билдер.
+Для создания объектов используется паттерн JavaBeans. Это когда конструктор пустой, а объект настраивается через сеттеры. Да, не лучший выбор, но и проект с историческим наследием. [Вот статья](https://medium.com/@muradhajiyev/why-builder-pattern-not-telescoping-or-javabeans-6daa689f418) о разных видах создания объектов в java. Спойлер: используйте билдер.
 
-Мы будем работать с тем, что есть. Нужно разработать сервис Hostel.  Hostel умеет приветствовать клиетнов фразой `"Welcome in hoselName, customer.getWelcomeName(). customer.getCountry() is great!"`
+Мы будем работать с тем, что есть. :information_desk_person:
 
-Вот и все требования, погнали!
+#### Задача. 
+
+Разработать сервис Hostel. Hostel умеет приветствовать клиентов фразой `"Welcome in hoselName, customer.getWelcomeName(). customer.getCountry() is great!"`. Вот и вся задача.
+
+Погнали!
 
 ### Первый заход
 
@@ -130,8 +160,8 @@ class HostelImplTestWithoutSmartBuilder {
     }
 ```
 
-Тут я предлагаю остановиться и посмотреть на тест. 
-Для такого простого кейса многовато кода. Для быстрого написания большого количества тестов нужно что-то сделать с секцией `//Given`.
+Предлагаю остановиться и посмотреть на тест. 
+Для такого простого кейса слишком много кода. Проблема с секцией `//Given`.
 
 ```java{linenos=table,hl_lines=["11-19"],linenostart=1}
 class HostelImplTestWithoutSmartBuilder {
@@ -161,21 +191,21 @@ class HostelImplTestWithoutSmartBuilder {
         assertThat(welcomeMessage).isEqualTo("Welcome in Best hostel, Alexander Pakhomov. Russia is great!");
     }
 ```
-Нужно упростить создание объектов `Person` и `Organisation`.
+Слишком громоздко. Суть теста замыливается созданием объектов `Person` и `Address`. Нужно это упростить.
 
 ### Второй заход
 
 #### Выносим создание объектов в отдельный метод
 
-Мысль протая и в большинстве случаев работaет. Но когда дело доходит до огромного количества полей у доменных обьектов, то получаем что-то вроде 
+Мысль очевидная и в большинстве случаев работaет. Но когда дело доходит до огромного количества полей у объектов, то получаем что-то вроде 
 
 ```java 
-Person givenPerson = createSamplePerson("Saha", "Pushkin", "Russia","Kolotushkina 29", null, 0, "")
+Person givenPerson = createSamplePerson("Saha", "Pushkin", "Russia","Kolotushkina 29", null, null, 0, "")
 ```
 
 и это еще лайт. Напомню, проект с историческим наследием! 
 
-Да, код можно улучшить: вынести параметры в переменный, добавить еще методов. Но это не является решением проблемы, это подавление симтомов. Получается, что нужно использовать другой механизм создания обьектов.
+Да, код можно улучшить: вынести параметры в переменные, добавить еще методов. Но это не решение проблемы, это подавление симптомов. Нужно использовать другой механизм создания объектов.
 
 ### Третий заход
 
@@ -196,7 +226,7 @@ var person = Person.builder()
 
 Уже лучше. Параметры именованны и типизированны. Но что тут не так? 
 
-Мы хотим писать в TDD парадигме. Тесты должны быть простыми, отражать только спецификацию поведения. Мы должны читать тесты как описание поведения обьекта. Наличие `Person.builder()` и никому (в тесте) не нужных вызовов `.build()` усложняет чтение кода. 
+Мы хотим писать в TDD парадигме. Тесты должны быть простыми, отражать только спецификацию. Мы должны читать тесты как описание поведения объекта. Наличие `Person.builder()` и никому (в тесте) не нужных вызовов `.build()` усложняет чтение кода. 
 
 ```java{linenos=table,hl_lines=[2,5,8,9],linenostart=1}
 // Given
@@ -213,8 +243,7 @@ var person = Person.builder()
 
 ---
 
-
-## Решение -- SmartBuilder
+## Решение -- SmartBuilder :construction_worker:
 
 ### Как это выглядит в итоге 
 
@@ -268,7 +297,6 @@ public abstract class CustomerBuilder<T extends AbstractCustomer, B extends Cust
 ```
 
 Билдер для `Person`
-
 ```java
 public class PersonBuilder<T extends Person> extends CustomerBuilder<T, PersonBuilder<T>> {
     private String firstName;
@@ -338,12 +366,11 @@ public class GenericBuilderDsl {
 }
 ```
 
-Вот и все! Такие SmartBuilder-ы удобны для написания тестов, которые может прочитать даже ваш PM. 
+Вот и все! SmartBuilder-ы удобны для написания тестов, которые может прочитать даже ваш PM. 
 
 Если вам понравилась эта идея: 
 - [вот имплементация](https://github.com/PakhomovAlexander/java-tests-best-practices/tree/master/dsl-for-tests/src/test/java/io/github/pakhomovalexander/builders)
 - [тут](https://github.com/PakhomovAlexander/java-tests-best-practices/blob/master/dsl-for-tests/src/test/java/io/github/pakhomovalexander/service/HostelImplTestWithoutSmartBuilder.java) можно посмотреть тест без SmartBuilder
 - [тут](https://github.com/PakhomovAlexander/java-tests-best-practices/blob/master/dsl-for-tests/src/test/java/io/github/pakhomovalexander/service/HostelImplTestWithSmartBuilder.java) тест с SmartBuilder
 
-
-Подписывайтесь на [душный канал](https://t.me/toxic_enterprise) и [твиттер](https://twitter.com/alexandr_phmv). 
+Подписывайтесь на [душный канал](https://t.me/toxic_enterprise) и [твиттер](https://twitter.com/alexandr_phmv). В следующей статье пойдем дальше. :metal:
