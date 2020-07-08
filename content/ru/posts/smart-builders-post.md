@@ -1,6 +1,5 @@
 +++ 
-draft = true
-date = 2020-07-07T16:28:33+03:00
+date = 2020-07-08T16:40:00+03:00
 title = "TDD. SmartBuilder паттерн"
 description = ""
 slug = "smart-builder" 
