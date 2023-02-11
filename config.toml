@@ -16,69 +16,74 @@ publishDir = "PakhomovAlexander.github.io"
 disqusShortname = "alexander"
 
 [params]
-   author = "Alexander Pakhomov"
-   info = "Software Engineer"
-   #description = "John Doe's personal website"
-   keywords = "blog,developer,personal,apakhomov,alexander,pakhomov,aleksandr pakhomov, Александр Пахомов"
-   avatarurl = "images/avatar.jpeg"
-   favicon_32 = "/img/favicon-32x32.png"
-   favicon_16 = "/img/favicon-16x16.png"
-   footercontent = "Contact me apkhmv@gmail.com"
-   hidecredits = true
-   hidefooter = false
-   hidecopyright = false
-   rtl = false
-   math = true
-   custom_css = ["css/custom.css"]
+author = "Alexander Pakhomov"
+info = "Software Engineer"
+#description = "John Doe's personal website"
+keywords = "blog,developer,personal,apakhomov,alexander,pakhomov,aleksandr pakhomov, Александр Пахомов"
+avatarurl = "images/avatar.jpeg"
+favicon_32 = "/img/favicon-32x32.png"
+favicon_16 = "/img/favicon-16x16.png"
+footercontent = "Contact me apkhmv@gmail.com"
+hidecredits = true
+hidefooter = false
+hidecopyright = false
+rtl = false
+math = true
+custom_css = []
+colorScheme = "auto"
 #Social links
 [[params.social]]
-   name = "Github"
-   icon = "fab fa-github fa-2x"
-   weight = 1
-   url = "https://github.com/PakhomovAlexander"
+name = "Github"
+icon = "fa fa-github fa-2x"
+weight = 1
+url = "https://github.com/PakhomovAlexander"
 [[params.social]]
-   name = "Twitter"
-   icon = "fab fa-twitter fa-2x"
-   weight = 3
-   url = "https://twitter.com/alexandr_phmv"
+name = "Twitter"
+icon = "fa fa-twitter fa-2x"
+weight = 3
+url = "https://twitter.com/alexandr_phmv"
 
 [[params.social]]
-   name = "Telegram channel"
-   icon = "fab fa-telegram fa-2x"
-   weight = 3
-   url = "https://t.me/toxic_enterprise"
+name = "Telegram channel"
+icon = "fa fa-telegram fa-2x"
+weight = 3
+url = "https://t.me/toxic_enterprise"
 
 
 
 [languages]
-    [languages.en]
-        languagename = "English"
-        contentDir = "content/"
+[languages.en]
+languagename = "English"
+contentDir = "content/"
 
-        #Menu links
-        [[languages.en.menu.main]]
-           name = "Blog"
-           weight = 1
-           url  = "/posts/"
-        [[languages.en.menu.main]]
-           name = "About"
-           weight = 2
-           url = "/about/"
+#Menu links
+[[languages.en.menu.main]]
+name = "Blog"
+weight = 1
+url = "/posts/"
+[[languages.en.menu.main]]
+name = "About"
+weight = 2
+url = "/about/"
 
 
 
-    [languages.ru]
-        languagename = "Русский"
-        contentDir = "content/ru"
-        [languages.ru.i18n.readingTime]
-           one = "One minute to read"
-           other = "minutes to read"
+[languages.ru]
+languagename = "Русский"
+contentDir = "content/ru"
+[languages.ru.i18n.readingTime]
+one = "One minute to read"
+other = "minutes to read"
 
-        [[languages.ru.menu.main]]
-            name = "Блог"
-            weight = 1
-            url  = "/posts/"
-        [[languages.ru.menu.main]]
-            name = "Обо мне"
-            weight = 2
-            url = "/about/"
+[[languages.ru.menu.main]]
+name = "Блог"
+weight = 1
+url = "/posts/"
+[[languages.ru.menu.main]]
+name = "Обо мне"
+weight = 2
+url = "/about/"
+[[languages.ru.menu.main]]
+name = "Доклады"
+weight = 3
+url = "/keynotes/"
