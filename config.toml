@@ -11,7 +11,7 @@ enableEmoji = true
 pygmentsstyle = "bw"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
-publishDir = "PakhomovAlexander.github.io"
+#publishDir = "PakhomovAlexander.github.io"
 
 disqusShortname = "alexander"
 
