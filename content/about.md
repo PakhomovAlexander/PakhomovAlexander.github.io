@@ -1,13 +1,13 @@
-## Who am I
+## About Me
 
-Hello! My name is Pakhomov Alexander. I am a software engineer. I am a passionate programmer who wants to ship better ideas to the world.
+Welcome! My name is Aleksandr Pakhomov and I am a seasoned software engineer and committer to Apache projects. 
+I am passionate about programming and strive to deliver innovative ideas to the world.
 
-## What Am I Doing
+## Current Activities
 
-- I write to [telegram channel](https://t.me/toxic_enterprise) my thoughts and share useful articles. [RU only]  
-- I write articles to [Blog](/ru/posts). It can be empty for a while :) [RU only] 
-- I host the [podcast](https://pc.st/1648026802) about Software Engineering. [RU only]
+I frequently share my thoughts and relevant articles on my [Telegram channel](https://t.me/toxic_enterprise) (RU only). 
+Additionally, I am the host of a Software Engineering podcast, which is available to listen to at https://pc.st/1648026802 (RU only).
 
-## Contacts
+# Contact Me
 
-You can contact me here apkhmv@gmail.com or via [telegram](https://t.me/apakhmv).
+You can contact me directly at apkhmv@gmail.com or through my Telegram handle, [apakhmv](https://t.me/apakhmv).
