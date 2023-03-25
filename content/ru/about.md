@@ -14,4 +14,4 @@
 
 ## Контакты
 
-Пишите на почту apkhmv@gmail.com или в [телеграм](https://t.me/AlexandrPakhomov).
+Пишите на почту apkhmv@gmail.com или в телеграм [apakhmv](https://t.me/apakhmv).
