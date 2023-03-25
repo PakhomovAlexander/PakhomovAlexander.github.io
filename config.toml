@@ -11,7 +11,6 @@ enableEmoji = true
 pygmentsstyle = "bw"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
-#publishDir = "PakhomovAlexander.github.io"
 
 disqusShortname = "alexander"
 
@@ -57,10 +56,10 @@ languagename = "English"
 contentDir = "content/"
 
 #Menu links
-[[languages.en.menu.main]]
-name = "Blog"
-weight = 1
-url = "/posts/"
+#[[languages.en.menu.main]]
+#name = "Blog"
+#weight = 1
+#url = "/posts/"
 [[languages.en.menu.main]]
 name = "About"
 weight = 2
