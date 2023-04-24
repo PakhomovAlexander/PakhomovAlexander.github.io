@@ -2,7 +2,7 @@ baseurl = "https://pakhomovalexander.github.io"
 title = "apakhomov"
 theme = "hugo-coder"
 languagecode = "en"
-defaultcontentlanguage = "en"
+defaultcontentlanguage = "ru"
 
 paginate = 20
 canonifyurls = true
@@ -12,24 +12,26 @@ pygmentsstyle = "bw"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
-disqusShortname = "alexander"
+disqusShortname = "aleksandr"
 
 [params]
-author = "Alexander Pakhomov"
+author = "Aleksandr Pakhomov"
 info = "Software Engineer"
-#description = "John Doe's personal website"
-keywords = "blog,developer,personal,apakhomov,alexander,pakhomov,aleksandr pakhomov, Александр Пахомов"
+keywords = "blog,developer,personal,apakhomov,alexander,pakhomov,aleksandr pakhomov, Александр Пахомов, Саша Пахомов"
 avatarurl = "images/avatar.jpeg"
 favicon_32 = "/img/favicon-32x32.png"
 favicon_16 = "/img/favicon-16x16.png"
 footercontent = "Contact me apkhmv@gmail.com"
 hidecredits = true
-hidefooter = false
-hidecopyright = false
+hidefooter = true
+hidecopyright = true
 rtl = false
 math = true
 custom_css = []
 colorScheme = "auto"
+[markup.goldmark.renderer]
+unsafe= true
+
 #Social links
 [[params.social]]
 name = "Github"
@@ -66,7 +68,6 @@ weight = 2
 url = "/about/"
 
 
-
 [languages.ru]
 languagename = "Русский"
 contentDir = "content/ru"
@@ -75,14 +76,18 @@ one = "One minute to read"
 other = "minutes to read"
 
 [[languages.ru.menu.main]]
-name = "Блог"
-weight = 1
-url = "/posts/"
-[[languages.ru.menu.main]]
 name = "Обо мне"
-weight = 2
+weight = 1
 url = "/about/"
+[[languages.ru.menu.main]]
+name = "Блог"
+weight = 2
+url = "/posts/"
 [[languages.ru.menu.main]]
 name = "Доклады"
 weight = 3
 url = "/keynotes/"
+[[languages.ru.menu.main]]
+name = "Подкаст"
+weight = 4
+url = "/episode/"
