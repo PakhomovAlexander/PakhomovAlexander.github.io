@@ -6,10 +6,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Подкаст переехал на apkhmv.xyz</title>
+  <title>{{ .title | default "Подкаст переехал на apkhmv.xyz" }}</title>
   <link rel="canonical" href="{{ $target }}">
   <meta http-equiv="refresh" content="0; url={{ $target }}">
-  <meta name="description" content="Подкаст «Тысяча фичей» переехал на apkhmv.xyz">
+  <meta name="description" content="{{ .description | default "Подкаст «Тысяча фичей» переехал на apkhmv.xyz" }}">
   <style>
     body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
          font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#fafafa;color:#1a1a1a}
@@ -23,7 +23,7 @@
 </head>
 <body>
   <main class="card">
-    <h1>🎙️ Подкаст переехал</h1>
+    <h1>{{ .heading | default "🎙️ Подкаст переехал" }}</h1>
     <p>{{ .intro | safeHTML }}</p>
     <p><a class="btn" href="{{ $target }}">Открыть apkhmv.xyz →</a></p>
     <p class="muted">Если переадресация не сработала — нажмите на ссылку выше.</p>
